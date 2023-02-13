@@ -2,12 +2,12 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import List from './List';
 import { apiSlice } from '../redux/apiSlice';
-import { Labels } from '../types';
+//import { Labels } from '../types';
 
 const Form = () => {
 	const { register, handleSubmit, resetField } = useForm();
 	const [newTransaction] = apiSlice.useNewTransactionMutation();
-	const onSubmit = async (data: any) => {
+	const onSubmit = async (data:any) => {
 		if (!data) return {};
 		await newTransaction(data).unwrap();
 		resetField('name');

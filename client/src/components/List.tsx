@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react';
-import 'boxicons';
+
 import { apiSlice } from '../redux/apiSlice';
 import { MdDeleteForever } from 'react-icons/md';
 
