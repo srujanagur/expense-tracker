@@ -1,7 +1,7 @@
 import Transaction from '../models/transactions_model.js'
 import { Request, Response, NextFunction } from 'express'
 
-// transaction category
+// transaction categories
 export const newTransaction = async (
   req: Request,
   res: Response,
@@ -63,7 +63,7 @@ export const getLabels = async (
       },
     },
     {
-      // $unwind: { path: '$categories_info', preserveNullAndEmptyArrays: true },
+       //$unwind: { path: '$categories_info', preserveNullAndEmptyArrays: true },
       $unwind: '$categories_info',
     },
   ])

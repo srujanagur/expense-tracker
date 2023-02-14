@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { apiSlice } from '../redux/apiSlice';
+import { default as api } from '../redux/apiSlice';
 import { getLabels } from './helper';
 
 const Labels = () => {
-	const { data, isFetching, isSuccess, isError } = apiSlice.useGetLabelsQuery();
+	const { data, isFetching, isSuccess, isError } = api.useGetLabelsQuery();
+	
 	let Transactions;
 	if (isFetching) {
 		Transactions = <div>Fetching</div>;
@@ -15,7 +16,7 @@ const Labels = () => {
 	} else if (isError) {
 		Transactions = <div>Error</div>;
 	}
-	return <>{Transactions}</>;
+	return (<>{Transactions}</>);
 };
 
 function LabelComponent({ data }: any) {

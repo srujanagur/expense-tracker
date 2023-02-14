@@ -2,9 +2,9 @@ POST  http://localhost:3000/api/transactions
 Content-Type: application/json
 
 {
-    "name": "SIP",
-    "type": "Investment",
-    "amount": 20000
+    "name": "expense",
+    "type": "rent",
+    "amount": 5000
 }
 
 ###

@@ -1,12 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import List from './List';
-import { apiSlice } from '../redux/apiSlice';
+import { default as api } from '../redux/apiSlice';
 //import { Labels } from '../types';
 
 const Form = () => {
 	const { register, handleSubmit, resetField } = useForm();
-	const [newTransaction] = apiSlice.useNewTransactionMutation();
+	const [newTransaction] = api.useNewTransactionMutation();
 	const onSubmit = async (data:any) => {
 		if (!data) return {};
 		await newTransaction(data).unwrap();
@@ -18,11 +18,6 @@ const Form = () => {
 			<h1 className='font-bold pb-4 text-xl'>Transaction</h1>
 			<form id='form' onSubmit={handleSubmit(onSubmit)}>
 				<div className='grid gap-4'>
-					<select className='form-input' {...register('type')}>
-						<option value='Expense'>Expense</option>
-						<option value='Savings'>Savings</option>
-						<option value='Investment'>Investment</option>
-					</select>
 					<div className='input-group'>
 						<input
 							{...register('name')}
@@ -31,6 +26,12 @@ const Form = () => {
 							className='form-input'
 						/>
 					</div>
+					<select className='form-input' {...register('type')}>
+						<option value='Expense'>Expense</option>
+						<option value='Savings'>Savings</option>
+						<option value='Investment'>Investment</option>
+					</select>
+					
 					<div className='input-group'>
 						<input
 							type='text'
